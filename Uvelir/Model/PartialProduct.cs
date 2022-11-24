@@ -8,5 +8,16 @@ namespace Uvelir.Model
 {
     partial class Product
     {
+        public string GetImage
+        {
+            get
+            {
+                return Environment.CurrentDirectory + "\\" + Image;
+            }
+            set
+            {
+                Image = value;
+            }
+        }
     }
 }

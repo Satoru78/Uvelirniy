@@ -102,6 +102,9 @@
     <Compile Include="Model\User.cs">
       <DependentUpon>Model.tt</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\AdminPages\MainPageAdmin.xaml.cs">
+      <DependentUpon>MainPageAdmin.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Pages\AdminPages\ProductData.xaml.cs">
       <DependentUpon>ProductData.xaml</DependentUpon>
     </Compile>
@@ -111,6 +114,10 @@
     <Compile Include="Views\Windows\WindowCose.xaml.cs">
       <DependentUpon>WindowCose.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\Pages\AdminPages\MainPageAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\Pages\AdminPages\ProductData.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

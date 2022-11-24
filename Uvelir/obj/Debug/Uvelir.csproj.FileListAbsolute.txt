@@ -26,3 +26,5 @@ C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Uvelir.csproj.CoreCompileInp
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Uvelir.csproj.CopyComplete
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Uvelir.exe
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Uvelir.pdb
+C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\MainPageAdmin.g.cs
+C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\MainPageAdmin.baml
