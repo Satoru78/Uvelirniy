@@ -38,16 +38,6 @@
     <Property Name="Title" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
     <NavigationProperty Name="User" Relationship="Self.FK_User_Role" FromRole="Role" ToRole="User" />
   </EntityType>
-  <EntityType Name="sysdiagrams">
-    <Key>
-      <PropertyRef Name="diagram_id" />
-    </Key>
-    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
-    <Property Name="principal_id" Type="Int32" Nullable="false" />
-    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-    <Property Name="version" Type="Int32" />
-    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
-  </EntityType>
   <EntityType Name="User">
     <Key>
       <PropertyRef Name="ID" />
@@ -60,6 +50,17 @@
     <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
     <Property Name="IDRole" Type="Int32" Nullable="false" />
     <NavigationProperty Name="Role" Relationship="Self.FK_User_Role" FromRole="User" ToRole="Role" />
+    <NavigationProperty Name="LoginHistory" Relationship="Self.FK_LoginHistory_User" FromRole="User" ToRole="LoginHistory" />
+  </EntityType>
+  <EntityType Name="LoginHistory">
+    <Key>
+      <PropertyRef Name="LoginTime" />
+    </Key>
+    <Property Name="IDUser" Type="Int32" />
+    <Property Name="LoginTime" Type="DateTime" Nullable="false" Precision="0" />
+    <Property Name="ErrorCount" Type="Int32" />
+    <NavigationProperty Name="User" Relationship="Self.FK_LoginHistory_User" FromRole="LoginHistory" ToRole="User" />
+    <Property Name="ID" Type="Int32" />
   </EntityType>
   <EntityType Name="Product">
     <Key>
@@ -124,13 +125,25 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="FK_LoginHistory_User">
+    <End Role="User" Type="Self.User" Multiplicity="0..1" />
+    <End Role="LoginHistory" Type="Self.LoginHistory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="LoginHistory">
+        <PropertyRef Name="IDUser" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <EntityContainer Name="UvelirBaseEntities" annotation:LazyLoadingEnabled="true">
     <EntitySet Name="CategoryProduct" EntityType="Self.CategoryProduct" />
     <EntitySet Name="Order" EntityType="Self.Order" />
     <EntitySet Name="OrderStatus" EntityType="Self.OrderStatus" />
     <EntitySet Name="Role" EntityType="Self.Role" />
-    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
     <EntitySet Name="User" EntityType="Self.User" />
+    <EntitySet Name="LoginHistory" EntityType="Self.LoginHistory" />
     <EntitySet Name="Product" EntityType="Self.Product" />
     <AssociationSet Name="FK_Product_CategoryProduct" Association="Self.FK_Product_CategoryProduct">
       <End Role="CategoryProduct" EntitySet="CategoryProduct" />
@@ -143,6 +156,10 @@
     <AssociationSet Name="FK_User_Role" Association="Self.FK_User_Role">
       <End Role="Role" EntitySet="Role" />
       <End Role="User" EntitySet="User" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LoginHistory_User" Association="Self.FK_LoginHistory_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="LoginHistory" EntitySet="LoginHistory" />
     </AssociationSet>
   </EntityContainer>
 </Schema>

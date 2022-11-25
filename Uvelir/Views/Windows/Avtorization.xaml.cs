@@ -14,6 +14,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Uvelir.Context;
+using Uvelir.Model;
 using Uvelir.Views.Windows;
 
 namespace Uvelir
@@ -23,6 +24,7 @@ namespace Uvelir
     /// </summary>
     public partial class Avtorization : Window
     {
+        public LoginHistory LoginHistory { get; set; }
         DispatcherTimer timer = new DispatcherTimer();
         public DateTime TimeBlock { get; set; }
         public Avtorization()
@@ -54,6 +56,16 @@ namespace Uvelir
                 {
                     AdminWindow adminWindow = new AdminWindow(currentUser);
                     adminWindow.ShowDialog();
+                    //var loginTime = Data.db.LoginHistory.FirstOrDefault(item => item.LoginTime == DateTime.Now);
+                    //if (loginTime)
+                    //{
+                        
+                    //   Data.db.LoginHistory.Add(loginTime);
+
+                        
+                    //    Data.db.SaveChanges();
+
+                    //}
                 }
                 else
                 {

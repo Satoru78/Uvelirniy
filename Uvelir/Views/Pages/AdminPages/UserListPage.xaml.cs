@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Uvelir.Model;
+using Uvelir.Context;
+
 
 namespace Uvelir.Views.Pages.AdminPages
 {
@@ -20,9 +23,20 @@ namespace Uvelir.Views.Pages.AdminPages
     /// </summary>
     public partial class UserListPage : Page
     {
-        public UserListPage()
+        public User User;
+        public Role Role;
+        public List<LoginHistory> LoginHistories { get; set; }
+        public LoginHistory LoginHistory { get; set; }
+        public UserListPage(LoginHistory loginHistory)
         {
             InitializeComponent();
+            this.LoginHistory = loginHistory;
+        }
+
+        private void Page_Loaded(object sender, RoutedEventArgs e)
+        {
+            LoginHistories = Data.db.LoginHistory.ToList();
+            LoginList.ItemsSource = LoginHistories;
         }
     }
 }

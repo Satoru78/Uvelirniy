@@ -12,12 +12,13 @@ namespace Uvelir.Model
     using System;
     using System.Collections.Generic;
     
-    public partial class sysdiagrams
+    public partial class LoginHistory
     {
-        public string name { get; set; }
-        public int principal_id { get; set; }
-        public int diagram_id { get; set; }
-        public Nullable<int> version { get; set; }
-        public byte[] definition { get; set; }
+        public Nullable<int> IDUser { get; set; }
+        public System.DateTime LoginTime { get; set; }
+        public Nullable<int> ErrorCount { get; set; }
+        public Nullable<int> ID { get; set; }
+    
+        public virtual User User { get; set; }
     }
 }

@@ -32,7 +32,7 @@ namespace Uvelir.Views.Pages.AdminPages
 
         private void btnUserList_Click(object sender, RoutedEventArgs e)
         {
-            NavigationService.Navigate(new UserListPage());
+            NavigationService.Navigate(new UserListPage(new Model.LoginHistory()));
         }
     }
 }

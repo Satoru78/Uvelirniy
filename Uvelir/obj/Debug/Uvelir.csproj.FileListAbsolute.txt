@@ -6,7 +6,6 @@ C:\Users\obaka\source\repos\Uvelir\Uvelir\bin\Debug\EntityFramework.SqlServer.dl
 C:\Users\obaka\source\repos\Uvelir\Uvelir\bin\Debug\EntityFramework.xml
 C:\Users\obaka\source\repos\Uvelir\Uvelir\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\obaka\source\repos\Uvelir\Uvelir\bin\Debug\ru\EntityFramework.resources.dll
-C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Uvelir.csproj.AssemblyReference.cache
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\ProductData.g.cs
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Windows\AdminWindow.g.cs
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Windows\Avtorization.g.cs
