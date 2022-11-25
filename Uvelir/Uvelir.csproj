@@ -108,6 +108,9 @@
     <Compile Include="Views\Pages\AdminPages\ProductData.xaml.cs">
       <DependentUpon>ProductData.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\Pages\AdminPages\UserListPage.xaml.cs">
+      <DependentUpon>UserListPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\Windows\AdminWindow.xaml.cs">
       <DependentUpon>AdminWindow.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\Pages\AdminPages\ProductData.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Pages\AdminPages\UserListPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -38,6 +38,7 @@
                                 <Label Content="{Binding Description}" ContentStringFormat="Описание товара" ></Label>
                                 <Label Content="{Binding Manufacturer}" ContentStringFormat="Производитель:"></Label>
                                 <Label Content="{Binding Count}" ContentStringFormat="Цена: {0}"></Label>
+                                <TextBlock Text="{Binding Discount}" Foreground="{Binding Color}"></TextBlock>
                             </StackPanel>
                             <StackPanel Grid.Column="2">
                                 <Label Content="{Binding QuantityInStock}" ContentStringFormat="Кол-во на складе: {0}"></Label>

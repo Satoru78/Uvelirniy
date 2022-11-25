@@ -23,43 +23,45 @@ namespace Uvelir
     /// </summary>
     public partial class Avtorization : Window
     {
+        DispatcherTimer timer = new DispatcherTimer();
+        public DateTime TimeBlock { get; set; }
         public Avtorization()
         {
             InitializeComponent();
-            txbPassword.IsEnabled = false;
-            txbCode.IsEnabled = false;
-            LoginBtn.IsEnabled = false;        
-
-            timer.Interval = TimeSpan.FromSeconds(3d);
+            timer.Interval = new TimeSpan(0,0,1);
             timer.Tick += timer_Tick;
         }
 
         private void timer_Tick(object sender, EventArgs e)
         {
-            MessageBox.Show("Время вышло");
-            timer.Stop();
+            if(DateTime.Now <= TimeBlock)
+            {
+                LoginBtn.IsEnabled = false;
+            }
+            else
+            {
+                LoginBtn.IsEnabled = true;
+                timer.Stop();
+            }
         }
 
-        DispatcherTimer timer = new DispatcherTimer();
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (txbLogin.Text == "" && txbPassword.Text == "")
+                var currentUser = Data.db.User.FirstOrDefault(item => item.Login == txbLogin.Text && item.Password == txbPassword.Text);
+                if (currentUser != null && tblCaptcha.Text == tblCaptcha.Text)
                 {
-                    throw new Exception("Заполните все поля");
+                    AdminWindow adminWindow = new AdminWindow(currentUser);
+                    adminWindow.ShowDialog();
                 }
                 else
                 {
-                    var currentUser = Data.db.User.FirstOrDefault(item => item.Login == txbLogin.Text && item.Password == txbPassword.Text);
-                    switch (currentUser.IDRole)
-                    {
-                        case 1:
-                            AdminWindow adminWindow = new AdminWindow();
-                            adminWindow.ShowDialog();
-                            break;
-
-                    }
+                    MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                    CaptchaPanel.Visibility = Visibility.Visible;
+                    tblCaptcha.Text = GenericCaptcha();
+                    timer.Start();
+                    TimeBlock = DateTime.Now.AddSeconds(10);
                 }
             }
             catch (Exception ex)
@@ -73,55 +75,24 @@ namespace Uvelir
             Application.Current.Shutdown();
         }
 
-        private void txbLogin_KeyDown(object sender, KeyEventArgs e)
+        public string GenericCaptcha()
         {
-            if (e.Key == Key.Enter)
+            char[] letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdifghijklmnopqrstuvwxyz#$%^&@123456789!".ToCharArray();
+            Random rand = new Random();
+            string word = "";
+
+            for (int j = 1; j <= 4; j++)
             {
-                if (Data.db.User.Count(item => item.Login == txbLogin.Text) > 0)
-                {
-                    txbPassword.IsEnabled = true;
-                    txbPassword.Focus();
-                }
-                else
-                {
-                    MessageBox.Show("Номера не существует");
-                }
+                int letter_num = rand.Next(0, letters.Length - 1);
+                word += letters[letter_num];
             }
-        }
-        WindowCose code = new WindowCose();
-        private void txbPassword_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Enter)
-            {
-                if (Data.db.User.Count(item => item.Password == txbPassword.Text) > 0)
-                {
-                    code.ShowDialog();
-                    txbCode.IsEnabled = true;
-                    txbCode.Focus();
-                    
-                }           
-            }
+
+            return word;
         }
 
-        private void txbCode_TextChanged(object sender, TextChangedEventArgs e)
+        private void btnCaptcha_Click(object sender, RoutedEventArgs e)
         {
-            if (txbCode.Text != "")
-            {
-                if (LoginBtn.IsEnabled != true) LoginBtn.IsEnabled = true;
-                timer.Stop();
-            }
-        }
-
-        private void Window_Loaded(object sender, RoutedEventArgs e)
-        {
-
-            if (txbCode.IsFocused == true)
-            {
-                if (code.IsActive == false)
-                {
-                    timer.Start();
-                }
-            }
+            tblCaptcha.Text = GenericCaptcha();
         }
     }
 }

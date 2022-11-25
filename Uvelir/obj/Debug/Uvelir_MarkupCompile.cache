@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\obaka\source\repos\Uvelir\Uvelir\App.xaml
-5-627017686
+61093839636
 2482335943
-21219480913
+221629631181
 18-736786376
-Views\Pages\AdminPages\MainPageAdmin.xaml;Views\Pages\AdminPages\ProductData.xaml;Views\Windows\AdminWindow.xaml;Views\Windows\Avtorization.xaml;Views\Windows\WindowCose.xaml;
+Views\Pages\AdminPages\MainPageAdmin.xaml;Views\Pages\AdminPages\ProductData.xaml;Views\Pages\AdminPages\UserListPage.xaml;Views\Windows\AdminWindow.xaml;Views\Windows\Avtorization.xaml;Views\Windows\WindowCose.xaml;
 
 False
 

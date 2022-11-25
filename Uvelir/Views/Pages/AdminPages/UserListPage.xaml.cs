@@ -16,23 +16,13 @@ using System.Windows.Shapes;
 namespace Uvelir.Views.Pages.AdminPages
 {
     /// <summary>
-    /// Логика взаимодействия для MainPageAdmin.xaml
+    /// Логика взаимодействия для UserListPage.xaml
     /// </summary>
-    public partial class MainPageAdmin : Page
+    public partial class UserListPage : Page
     {
-        public MainPageAdmin()
+        public UserListPage()
         {
             InitializeComponent();
-        }
-
-        private void ProductList_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new ProductData(new Model.Product()));
-        }
-
-        private void btnUserList_Click(object sender, RoutedEventArgs e)
-        {
-            NavigationService.Navigate(new UserListPage());
         }
     }
 }

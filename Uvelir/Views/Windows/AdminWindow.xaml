@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Uvelir.Views.Windows"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="600" Width="1080">
     <Grid>
-        <Frame Name="AdminFrame" NavigationUIVisibility="Hidden"></Frame>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="70">
+            </RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" >
+            <TextBlock Name="tblNameUser"
+                   VerticalAlignment="Top"
+                   HorizontalAlignment="Left"
+                   Margin="10"
+                   FontSize="14"/>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Frame Name="AdminFrame" NavigationUIVisibility="Hidden"></Frame>
+            
+        </Grid>
+
+       
     </Grid>
 </Window>
