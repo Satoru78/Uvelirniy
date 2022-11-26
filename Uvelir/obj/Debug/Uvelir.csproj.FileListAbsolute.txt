@@ -29,3 +29,4 @@ C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\MainP
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\MainPageAdmin.baml
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\UserListPage.g.cs
 C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Views\Pages\AdminPages\UserListPage.baml
+C:\Users\obaka\source\repos\Uvelir\Uvelir\obj\Debug\Uvelir.csproj.AssemblyReference.cache

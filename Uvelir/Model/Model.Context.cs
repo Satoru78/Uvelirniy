@@ -13,10 +13,10 @@ namespace Uvelir.Model
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class UvelirBaseEntities : DbContext
+    public partial class UvelirBaseEntities1 : DbContext
     {
-        public UvelirBaseEntities()
-            : base("name=UvelirBaseEntities")
+        public UvelirBaseEntities1()
+            : base("name=UvelirBaseEntities1")
         {
         }
     
@@ -26,11 +26,12 @@ namespace Uvelir.Model
         }
     
         public virtual DbSet<CategoryProduct> CategoryProduct { get; set; }
+        public virtual DbSet<LoginHistory> LoginHistory { get; set; }
         public virtual DbSet<Order> Order { get; set; }
         public virtual DbSet<OrderStatus> OrderStatus { get; set; }
         public virtual DbSet<Role> Role { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<User> User { get; set; }
-        public virtual DbSet<LoginHistory> LoginHistory { get; set; }
         public virtual DbSet<Product> Product { get; set; }
     }
 }

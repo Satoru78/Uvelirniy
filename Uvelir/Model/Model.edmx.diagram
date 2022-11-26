@@ -4,18 +4,19 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="c96486cdcf8649d6991daf1e45cfc5b2" Name="Diagram1">
+      <Diagram DiagramId="4d88790a069248f6902890c8a613a088" Name="Diagram1">
         <EntityTypeShape EntityType="UvelirBaseModel.CategoryProduct" Width="1.5" PointX="0.75" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="UvelirBaseModel.LoginHistory" Width="1.5" PointX="5.25" PointY="1.375" IsExpanded="true" />
         <EntityTypeShape EntityType="UvelirBaseModel.Order" Width="1.5" PointX="8" PointY="5" IsExpanded="true" />
         <EntityTypeShape EntityType="UvelirBaseModel.OrderStatus" Width="1.5" PointX="5.75" PointY="5.5" IsExpanded="true" />
         <EntityTypeShape EntityType="UvelirBaseModel.Role" Width="1.5" PointX="0.75" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="UvelirBaseModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
         <EntityTypeShape EntityType="UvelirBaseModel.User" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
-        <EntityTypeShape EntityType="UvelirBaseModel.LoginHistory" Width="1.5" PointX="5.25" PointY="1.5" IsExpanded="true" />
         <EntityTypeShape EntityType="UvelirBaseModel.Product" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
         <AssociationConnector Association="UvelirBaseModel.FK_Product_CategoryProduct" ManuallyRouted="false" />
+        <AssociationConnector Association="UvelirBaseModel.FK_LoginHistory_User1" ManuallyRouted="false" />
         <AssociationConnector Association="UvelirBaseModel.FK_Order_OrderStatus" ManuallyRouted="false" />
         <AssociationConnector Association="UvelirBaseModel.FK_User_Role" ManuallyRouted="false" />
-        <AssociationConnector Association="UvelirBaseModel.FK_LoginHistory_User" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

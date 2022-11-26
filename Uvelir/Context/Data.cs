@@ -9,6 +9,6 @@ namespace Uvelir.Context
 {
     public static class Data
     {
-        public static UvelirBaseEntities db = new UvelirBaseEntities();
+        public static UvelirBaseEntities1 db = new UvelirBaseEntities1();
     }
 }

@@ -51,25 +51,24 @@ namespace Uvelir
         {
             try
             {
+                int count = 0;
                 var currentUser = Data.db.User.FirstOrDefault(item => item.Login == txbLogin.Text && item.Password == txbPassword.Text);
                 if (currentUser != null && tblCaptcha.Text == tblCaptcha.Text)
                 {
+                    LoginHistory = new LoginHistory();
+                    LoginHistory.IDUser = currentUser.ID;
+                    LoginHistory.LoginTime = DateTime.Now;
+                    LoginHistory.ErrorCount = count;
+                    Data.db.LoginHistory.Add(LoginHistory);
+                    Data.db.SaveChanges();
                     AdminWindow adminWindow = new AdminWindow(currentUser);
                     adminWindow.ShowDialog();
-                    //var loginTime = Data.db.LoginHistory.FirstOrDefault(item => item.LoginTime == DateTime.Now);
-                    //if (loginTime)
-                    //{
-                        
-                    //   Data.db.LoginHistory.Add(loginTime);
 
-                        
-                    //    Data.db.SaveChanges();
-
-                    //}
                 }
                 else
                 {
                     MessageBox.Show("Пользователь не найден", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
+                    count++;
                     CaptchaPanel.Visibility = Visibility.Visible;
                     tblCaptcha.Text = GenericCaptcha();
                     timer.Start();
