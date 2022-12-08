@@ -10,7 +10,15 @@
       Title="UserListPage">
 
     <Grid>
-        <DataGrid AutoGenerateColumns="False" Name="LoginList">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Center">
+            <Button Content="Назад" Name="BackBtn" Width="100" Click="BackBtn_Click"></Button>
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <DataGrid AutoGenerateColumns="False" Name="LoginList">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="Пользователь" Binding="{Binding User.FirstName}"></DataGridTextColumn>
                 <DataGridTextColumn Header="Время входа" Binding="{Binding LoginTime}"></DataGridTextColumn>
@@ -18,5 +26,6 @@
                 <DataGridTextColumn Header="Роль" Binding="{Binding Role.Title}"></DataGridTextColumn>
             </DataGrid.Columns>
         </DataGrid>
+        </Grid>
     </Grid>
 </Page>

@@ -62,5 +62,50 @@ namespace Uvelir.Views.Pages.AdminPages
             Products = Data.db.Product.ToList();
             ProductDataListView.ItemsSource = Products;
         }
+
+        private void cmbProductCategory_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            Category((cmbProductCategory.SelectedItem as ComboBoxItem).Content.ToString(), cmbProductCategory.Text);
+        }
+        private void Category(string type = "", string search = "")
+        {
+            var materials = Data.db.Product.ToList();
+            if (!string.IsNullOrEmpty(type) && !string.IsNullOrEmpty(type))
+            {
+                if (type == "Серьги")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Серьги").ToList();
+                }
+                if (type == "Подвеска")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Подвеска").ToList();
+                }
+                if (type == "Ожерелье")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Ожерелье").ToList();
+                }
+                if (type == "Браслет")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Браслет").ToList();
+                }
+                if (type == "Брошь")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Брошь").ToList();
+                }
+                if (type == "Кольцо")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Кольцо").ToList();
+                }
+                if (type == "Колье")
+                {
+                    materials = materials.Where(item => item.CategoryProduct.Title == "Колье").ToList();
+                }              
+                if (type == "Все")
+                {
+                    materials = materials.ToList();
+                }
+            }
+            ProductDataListView.ItemsSource = materials;
+        }
     }
 }

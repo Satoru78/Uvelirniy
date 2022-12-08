@@ -22,6 +22,19 @@
             <TextBlock Text="ПОИСК:" ></TextBlock>
             <TextBox Name="txbSearchProduct" SelectionChanged="txbSearchProduct_SelectionChanged" Width="250" Height="20"></TextBox>
         </StackPanel>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10,0">
+            <TextBlock Text="Категория:"></TextBlock>
+            <ComboBox Name="cmbProductCategory" SelectionChanged="cmbProductCategory_SelectionChanged" Width="100">
+                <ComboBoxItem>Серьги</ComboBoxItem>
+                <ComboBoxItem>Подвеска</ComboBoxItem>
+                <ComboBoxItem>Ожерелье</ComboBoxItem>
+                <ComboBoxItem>Браслет</ComboBoxItem>
+                <ComboBoxItem>Брошь</ComboBoxItem>
+                <ComboBoxItem>Кольцо</ComboBoxItem>
+                <ComboBoxItem>Колье</ComboBoxItem>
+                <ComboBoxItem>Все</ComboBoxItem>
+            </ComboBox>
+        </StackPanel>
         <Grid Name="ProductDataView" Grid.Row="1" Grid.Column="1">
             <ListView Name="ProductDataListView">
                 <ListView.ItemTemplate>

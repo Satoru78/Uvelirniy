@@ -38,5 +38,10 @@ namespace Uvelir.Views.Pages.AdminPages
             LoginHistories = Data.db.LoginHistory.ToList();
             LoginList.ItemsSource = LoginHistories;
         }
+
+        private void BackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            NavigationService.GoBack();
+        }
     }
 }
